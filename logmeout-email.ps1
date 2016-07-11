@@ -3,12 +3,12 @@ $HBInstance = $args[0] #add your specific honorbuddy instance identifier as a co
 $HBPath = "C:\Honorbuddy" # Change this to your HB installation
 $HBLogFile = (Get-ChildItem $HBPath\Logs -Recurse -ErrorAction SilentlyContinue | Where {!$_.PsIsContainer}|Sort LastWriteTime -descending | select -first 1).fullname
 
-$SMTPServer = "smtp.gmail.com"
+$SMTPServer = "smtp.gmail.com" # by default it uses gmail smtp server and email account, you can change it if you do not use gmail.
 $SMTPPort = "587"
-$Username = "from@gmail.com"
-$Password = "password"
+$Username = "from@gmail.com" # change this to your sender email account
+$Password = "password" # change this to your sender password
 
-$to = "to@domain.com"
+$to = "to@domain.com" # change this to your recipient email account
 $subject = "logmeout - $HBInstance"
 $body = (Get-Content "$HBLogFile")[-1 .. -200]
 
