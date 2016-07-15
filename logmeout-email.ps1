@@ -10,7 +10,7 @@ $Password = "password" # change this to your sender password
 
 $to = "to@domain.com" # change this to your recipient email account
 $subject = "logmeout - $HBInstance"
-$body = (Get-Content "$HBLogFile")[-1 .. -200]
+$body = (Get-Content "$HBLogFile")[-1 .. -200] # retrieves the last 200 lines of the HB log file, you can change it as you like.
 
 $message = New-Object System.Net.Mail.MailMessage
 $message.subject = $subject
